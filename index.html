@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>Core JavaScript 4</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">Eko Svet   </a></h1>
+			<p> dizajnirao <a href="#">Petar Petrovic</a></p>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Pocetna</a></li>
+			<li><a href="javascript:void(0)" onclick="chat()">Chat</a></li>
+			<li><a href="#">Galerija</a></li>
+			<li><a href="#">O nama</a></li>
+			<li><a href="#">Linkovi</a></li>
+			<li><a href="#">Kontakt</a></li>
+		</ul>
+	</div>
+
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><a href="#">Dobrodosli u Eko Svet   </a></h2>
+				<p class="meta"><span class="date">Februar 24, 2015</span><span class="posted">Post napisao <a href="#">Petar P.</a></span></p>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+				<p>Ekologija je nauka o zivotnoj sredini. Ime nauke potice od grckih reci oikos - dom, domacinstvo i logos - nauka, izucavanje. Termin ekologija prvi put je upotrebio nemacki biolog Ernest Hekel 1866. godine. U laickoj javnosti se ovaj termin cesto koristi kao sinonim za pojam zastite zivotne sredine, sto nije ispravno jer je zastita zivotne sredine samo jedna od oblasti kojima se bavi ekologija. U sustini, ekologija je naucna disciplina koja proucava raspored i rasprostranjenost zivih organizama i bioloske interakcije između organizama i njihovog okruzenja. Okruzenje (zivotna sredina) organizama ukljucuje fizicke osobine, koje sumarno mogu da se opisu tzv. abiotickim faktorima kao sto su klima i geoloski uslovi (geologija), ali takođe ukljucuje i druge organizme koji dele sa njim njegov ekosistem odnosno staniste.</p>
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">Obnovljivi izvori energije  </a></h2>
+				<p class="meta"><span class="date">Februar 24, 2015</span><span class="posted">Post napisao <a href="#">Jovan J.</a></span></p>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+				<p>Ekologija je nauka o zivotnoj sredini. Ime nauke potice od grckih reci oikos - dom, domacinstvo i logos - nauka, izucavanje. Termin ekologija prvi put je upotrebio nemacki biolog Ernest Hekel 1866. godine. U laickoj javnosti se ovaj termin cesto koristi kao sinonim za pojam zastite zivotne sredine, sto nije ispravno jer je zastita zivotne sredine samo jedna od oblasti kojima se bavi ekologija. U sustini, ekologija je naucna disciplina koja proucava raspored i rasprostranjenost zivih organizama i bioloske interakcije između organizama i njihovog okruzenja. Okruzenje (zivotna sredina) organizama ukljucuje fizicke osobine, koje sumarno mogu da se opisu tzv. abiotickim faktorima kao sto su klima i geoloski uslovi (geologija), ali takođe ukljucuje i druge organizme koji dele sa njim njegov ekosistem odnosno staniste.</p>
+				</div>
+			</div>
+			<div class="post">
+				<h2 class="title"><a href="#">Solarni paneli   </a></h2>
+				<p class="meta"><span class="date">Februar 24, 2015</span><span class="posted">Post napisao <a href="#">Marko M.</a></span></p>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+				<p>Ekologija je nauka o zivotnoj sredini. Ime nauke potice od grckih reci oikos - dom, domacinstvo i logos - nauka, izucavanje. Termin ekologija prvi put je upotrebio nemacki biolog Ernest Hekel 1866. godine. U laickoj javnosti se ovaj termin cesto koristi kao sinonim za pojam zastite zivotne sredine, sto nije ispravno jer je zastita zivotne sredine samo jedna od oblasti kojima se bavi ekologija. U sustini, ekologija je naucna disciplina koja proucava raspored i rasprostranjenost zivih organizama i bioloske interakcije između organizama i njihovog okruzenja. Okruzenje (zivotna sredina) organizama ukljucuje fizicke osobine, koje sumarno mogu da se opisu tzv. abiotickim faktorima kao sto su klima i geoloski uslovi (geologija), ali takođe ukljucuje i druge organizme koji dele sa njim njegov ekosistem odnosno staniste.</p>
+				</div>
+			</div>
+			
+			<script>
+				var korisnik = prompt("Dobrodosli u chat sobu. Unesite svoje ime:");
+				var b = document.createElement("B");
+				korisnik = document.createTextNode("# " + korisnik + ": ");
+				b.appendChild(korisnik);
+				s = 0;
+				function send(msg){
+					s++;
+					
+					var time_n = new Date();
+                    var dateString = "(" + time_n.toLocaleTimeString() + ")";
+					
+					if (s == 2) {
+						var bc = document.createElement("B");
+						bc.style.color = "blue";
+						var automat = document.createTextNode("# AUTOMAT: ");
+						bc.appendChild(automat);
+					}else if(s == 1){
+						var bc = b.cloneNode(true);
+					}else{
+						s = 0;
+						return false;
+					}
+					var box = document.getElementById("box");
+					var new_text_p = document.createElement("P");
+					new_text_p.appendChild(bc);
+					var new_text = document.createTextNode(msg + " - " + dateString);
+					new_text_p.appendChild(new_text);
+					box.appendChild(new_text_p);
+					box.scrollTop = box.scrollHeight;
+					document.forms[0].msg.value = "";
+					setTimeout(function(){send("Odgovor automata.")},1000);
+					return false;
+				}
+				
+				
+				function chat(){
+					var chat_div = document.getElementById("box_frame");
+					if(chat_div.style.display === 'none'){
+						chat_div.style.display = 'block';
+					}else{
+						chat_div.style.display = 'none';
+					}
+					
+				}
+			</script>
+			<div id="box_frame">
+				<div id="box">
+					<img src="images/chat.jpg" style="width: 100%">
+				</div>
+				
+				<div>
+					<form onsubmit="return send(this.msg.value)">
+						<input type="text" name="msg" style="width:250px"/>
+						<input type="submit" value="SEND" />
+					</form>
+				</div>
+			</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		
+		
+		
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+					<form method="get" action="#">
+						<div>
+							<input type="text" name="s" id="search-text" value="" />
+							<input type="submit" id="search-submit" value="GO" />
+						</div>
+					</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+				<li>
+					<h2>Eko svet novosti</h2>
+					<p>Ekologija je nauka o zivotnoj sredini. Ime nauke potice od grckih reci oikos - dom, domacinstvo i logos - nauka, izucavanje.</p>
+				</li>
+				<li>
+					<h2>Kategorije</h2>
+					<ul>
+						<li><a href="#">Novosti</a></li>
+						<li><a href="#">Ekoloski trendovi</a></li>
+						<li><a href="#">Obnovljivi izvori energije</a></li>
+						<li><a href="#">Vetrogeneratori</a></li>
+						<li><a href="#">Solarni kolektori</a></li>
+						<li><a href="#">Snaga vode</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Novosti</h2>
+					<ul>
+						<li><a href="#">Novosti</a></li>
+						<li><a href="#">Ekoloski trendovi</a></li>
+						<li><a href="#">Obnovljivi izvori energije</a></li>
+						<li><a href="#">Vetrogeneratori</a></li>
+						<li><a href="#">Solarni kolektori</a></li>
+						<li><a href="#">Snaga vode</a></li>
+					</ul>
+				</li>
+				<li>
+					<h2>Arhiva</h2>
+					<ul>
+						<li><a href="#">Novosti</a></li>
+						<li><a href="#">Ekoloski trendovi</a></li>
+						<li><a href="#">Obnovljivi izvori energije</a></li>
+						<li><a href="#">Vetrogeneratori</a></li>
+						<li><a href="#">Solarni kolektori</a></li>
+						<li><a href="#">Snaga vode</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2015 ekosvet.com. Sva prava zadrzana. Dizajnirao <a href="#">Petar Petrovic</a>.</p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
